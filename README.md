@@ -193,13 +193,6 @@ All device operations can be undone, restoring previous states.
 ### 5. Device State Management
 Lights smoothly transition between OFF, ON, and DIMMED states.
 
-## Deliverables
-
-1. ✅ **Source Code** - Complete C++ implementation
-2. ✅ **Running Executable** - Build with Make or CMake
-3. ✅ **Design Document** - See `Design Patterns and its mapped UML Diagram.pdf`
-4. ⏳ **Video** - To be created separately
-
 ## Notes
 
 - The system uses modern C++ features (smart pointers, move semantics)
