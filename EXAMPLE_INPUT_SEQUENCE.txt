@@ -1,0 +1,263 @@
+========================================
+Example Input Sequence for Smart Home System
+========================================
+
+This file shows a complete example of how to interact with the Smart Home System.
+
+========================================
+STEP-BY-STEP EXAMPLE:
+========================================
+
+1. Start the program:
+   $ ./smarthome
+   
+   Output:
+   === Smart Home System Started ===
+   Type 'demo' to run automated demo, or use the menu for interactive control.
+
+2. First, let's add some devices:
+   
+   Enter your choice: 1
+   Enter light name: LivingRoomLight
+   
+   Enter your choice: 1
+   Enter light name: BedroomLight
+   
+   Enter your choice: 2
+   Enter thermostat name: HallThermostat
+   
+   Enter your choice: 3
+   Enter camera name: FrontDoorCamera
+   
+   Enter your choice: 4
+   Enter door lock name: MainDoorLock
+   
+   Enter your choice: 5
+   Enter motion sensor name: LivingRoomSensor
+
+3. Create groups:
+   
+   Enter your choice: 6
+   Enter group name: LivingRoom
+   
+   Enter your choice: 6
+   Enter group name: Entrance
+   
+   Enter your choice: 6
+   Enter group name: Security
+
+4. Add devices to groups:
+   
+   Enter your choice: 7
+   Enter device name: LivingRoomLight
+   Enter group name: LivingRoom
+   
+   Enter your choice: 7
+   Enter device name: LivingRoomSensor
+   Enter group name: LivingRoom
+   
+   Enter your choice: 7
+   Enter device name: FrontDoorCamera
+   Enter group name: Entrance
+   
+   Enter your choice: 7
+   Enter device name: MainDoorLock
+   Enter group name: Entrance
+   
+   Enter your choice: 7
+   Enter device name: FrontDoorCamera
+   Enter group name: Security
+   
+   Enter your choice: 7
+   Enter device name: MainDoorLock
+   Enter group name: Security
+   
+   Enter your choice: 7
+   Enter device name: LivingRoomSensor
+   Enter group name: Security
+
+5. Control individual devices:
+   
+   Enter your choice: 8
+   Enter device name: LivingRoomLight
+   (Output: LivingRoomLight: turning ON)
+   
+   Enter your choice: 9
+   Enter device name: LivingRoomLight
+   (Output: LivingRoomLight: turning OFF)
+   
+   Enter your choice: 10
+   Enter thermostat name: HallThermostat
+   Enter temperature: 25
+   (Output: HallThermostat: set temperature to 25)
+
+6. Control groups:
+   
+   Enter your choice: 11
+   Enter group name: LivingRoom
+   (Output: Turns ON all devices in LivingRoom group)
+   
+   Enter your choice: 12
+   Enter group name: Entrance
+   (Output: Turns OFF all devices in Entrance group)
+
+7. Set up automation (Observer Pattern):
+   
+   Enter your choice: 13
+   Enter motion sensor name: LivingRoomSensor
+   Enter device name to connect: LivingRoomLight
+   (Output: [System] Connected LivingRoomSensor to LivingRoomLight)
+   
+   Enter your choice: 13
+   Enter motion sensor name: LivingRoomSensor
+   Enter device name to connect: FrontDoorCamera
+   (Output: [System] Connected LivingRoomSensor to FrontDoorCamera)
+
+8. Test motion detection:
+   
+   Enter your choice: 14
+   Enter motion sensor name: LivingRoomSensor
+   (Output: 
+     LivingRoomSensor: motion detected
+     [Observer] LivingRoomLight reacting to event: motion_detected
+     LivingRoomLight: turning ON
+     [Observer] FrontDoorCamera reacting to event: motion_detected
+     FrontDoorCamera: recording started)
+
+9. Set automation modes:
+   
+   Enter your choice: 15
+   (Output: [System] Energy Saving Mode set)
+   
+   Enter your choice: 17
+   (Output: [Automation] Applying Energy Saving Mode...)
+   
+   Enter your choice: 16
+   (Output: [System] Comfort Mode set)
+   
+   Enter your choice: 17
+   (Output: [Automation] Applying Comfort Mode...)
+
+10. View group status:
+    
+    Enter your choice: 18
+    Enter group name: LivingRoom
+    (Output: 
+      Group[LivingRoom]:
+        - Light[LivingRoomLight] brightness=0 state=OFF
+        - MotionSensor[LivingRoomSensor] observers=2)
+    
+    Enter your choice: 18
+    Enter group name: Security
+    (Output: Shows all security devices)
+
+11. Test undo functionality:
+    
+    Enter your choice: 8
+    Enter device name: BedroomLight
+    (Output: BedroomLight: turning ON)
+    
+    Enter your choice: 19
+    (Output: [System] Undo: Last command reversed
+             BedroomLight: turning OFF)
+
+12. Exit:
+    
+    Enter your choice: 0
+    (Output: Exiting Smart Home System. Goodbye!)
+
+========================================
+QUICK DEMO MODE:
+========================================
+
+If you want to see all features automatically:
+
+Enter your choice: demo
+(or type "demo" when prompted)
+
+This will run a complete automated demonstration of all features.
+
+========================================
+COMPLETE EXAMPLE SESSION:
+========================================
+
+Here's a complete session showing a typical use case:
+
+=== Smart Home System Started ===
+Type 'demo' to run automated demo, or use the menu for interactive control.
+
+Enter your choice: 1
+Enter light name: KitchenLight
+[System] Added Light: KitchenLight
+
+Enter your choice: 2
+Enter thermostat name: KitchenThermostat
+[System] Added Thermostat: KitchenThermostat
+
+Enter your choice: 5
+Enter motion sensor name: KitchenSensor
+[System] Added Motion Sensor: KitchenSensor
+
+Enter your choice: 6
+Enter group name: Kitchen
+[System] Created group: Kitchen
+
+Enter your choice: 7
+Enter device name: KitchenLight
+Enter group name: Kitchen
+[System] Added KitchenLight to group Kitchen
+
+Enter your choice: 7
+Enter device name: KitchenSensor
+Enter group name: Kitchen
+[System] Added KitchenSensor to group Kitchen
+
+Enter your choice: 13
+Enter motion sensor name: KitchenSensor
+Enter device name to connect: KitchenLight
+[System] Connected KitchenSensor to KitchenLight
+
+Enter your choice: 8
+Enter device name: KitchenLight
+KitchenLight: turning ON
+
+Enter your choice: 10
+Enter thermostat name: KitchenThermostat
+Enter temperature: 22
+KitchenThermostat: set temperature to 22
+
+Enter your choice: 14
+Enter motion sensor name: KitchenSensor
+>>> Simulating motion...
+KitchenSensor: motion detected
+[Observer] KitchenLight reacting to event: motion_detected
+KitchenLight: turning ON
+
+Enter your choice: 11
+Enter group name: Kitchen
+[System] Turning ON all devices in group: Kitchen
+KitchenLight: already ON
+KitchenSensor: sensor ON
+
+Enter your choice: 18
+Enter group name: Kitchen
+Group[Kitchen]:
+  - Light[KitchenLight] brightness=0 state=ON
+  - MotionSensor[KitchenSensor] observers=1
+
+Enter your choice: 0
+Exiting Smart Home System. Goodbye!
+
+========================================
+TIPS:
+========================================
+
+1. You can add multiple devices of the same type with different names
+2. A device can belong to multiple groups
+3. Motion sensors can trigger multiple devices
+4. Use undo (option 19) to reverse the last command
+5. Group operations affect all devices in that group
+6. Type "demo" or choose option 20 to see an automated demonstration
+
+========================================
+
